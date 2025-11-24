@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Para Deareth - Mi Amor Eternso</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Favicons -->
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png">
+        <link rel="manifest" href="assets/favicon_io/site.webmanifest">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary-pink: #ec4899;
+            --secondary-pink: #f472b6;
+            --light-pink: #fdf2f8;
+            --dark-pink: #be185d;
+            --accent-gold: #fbbf24;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
+            color: #4c0519;
+            overflow-x: hidden;
+        }
+        
+        .romantic-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .elegant-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary-pink), transparent);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .romantic-card {
+            background: linear-gradient(145deg, #ffffff 0%, #fdf2f8 100%);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.15);
+            border-radius: 16px;
+            border: 1px solid rgba(236, 72, 153, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .romantic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(236, 72, 153, 0.25);
+        }
+        
+        .heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, -15px); }
+            100% { transform: translate(0, 0px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.2s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            0% { transform: translateX(-100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            0% { transform: translateX(100px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary-pink), var(--accent-gold));
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-pink);
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--primary-pink);
+        }
+        
+        .note-amor {
+            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+            border-left: 5px solid var(--primary-pink);
+        }
+        
+        .note-romantico {
+            background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+            border-left: 5px solid var(--accent-gold);
+        }
+        
+        .note-sticky {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 5px solid #38bdf8;
+        }
+        
+        .btn-romantic {
+            background: linear-gradient(to right, var(--primary-pink), var(--dark-pink));
+            color: white;
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+        
+        .btn-romantic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(236, 72, 153, 0.4);
+        }
+        
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .dot {
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            transform: scale(1.2);
+        }
+        
+        .firework {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        .floating-heart {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            animation: floatUp 5s linear forwards;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .music-player {
+            background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .progress-bar {
+            height: 6px;
+            border-radius: 3px;
+            background: #4b5563;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-pink), var(--accent-gold));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .volume-bar {
+            height: 4px;
+            border-radius: 2px;
+            background: #4b5563;
+            overflow: hidden;
+        }
+        
+        .volume-level {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-pink), var(--accent-gold));
+            border-radius: 2px;
+            width: 100%;
+        }
+        
+        .song-item {
+            transition: all 0.2s ease;
+            border-radius: 10px;
+        }
+        
+        .song-item:hover, .song-item.active {
+            background: rgba(236, 72, 153, 0.1);
+        }
+        
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            min-width: 200px;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+        }
+        
+        .countdown-label {
+            font-size: 0.875rem;
+            color: var(--primary-pink);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Header Romántico -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-200 via-pink-100 to-pink-300 z-0"></div>
+        
+        <!-- Efecto de corazones flotantes en el fondo -->
+        <div id="background-hearts" class="absolute inset-0 z-0"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <h1 class="romantic-font text-5xl md:text-7xl lg:text-8xl text-pink-700 mb-6 fade-in">
+                For my Love, Deareth
+            </h1>
+            <p class="elegant-font text-xl md:text-2xl text-pink-600 mb-8 fade-in">
+                 My eternal love, my reason for being.
+            </p>
+            <div class="heartbeat inline-block">
+                <svg class="w-16 h-16 md:w-20 md:h-20 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+            <div class="floating">
+                <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- CAROUSEL DE FOTOS MEJORADO -->
+    <section class="py-16 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                Our moments
+            </h2>
+            
+            <div class="romantic-card p-2 md:p-4">
+                <div id="carousel" class="relative rounded-xl overflow-hidden w-full h-64 md:h-96 lg:h-[32rem]">
+                    <div id="carousel-viewport" class="relative w-full h-full bg-gray-100 rounded-xl">
+                        <!-- Slides generados dinámicamente por JS -->
+                    </div>
+                    
+                    <button id="prev" aria-label="Anterior" class="carousel-btn absolute left-4 top-1/2 -translate-y-1/2 z-10">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    
+                    <button id="next" aria-label="Siguiente" class="carousel-btn absolute right-4 top-1/2 -translate-y-1/2 z-10">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    
+                    <div id="carousel-dots" class="flex justify-center gap-3 absolute bottom-4 left-1/2 -translate-x-1/2 z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FRASES ROMÁNTICAS MEJORADAS -->
+    <section class="py-16 px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-100 via-pink-50 to-pink-200 z-0"></div>
+        
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                Words of Love
+            </h2>
+            
+            <div class="romantic-card p-8 mb-8 text-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-20 h-20 bg-pink-200 rounded-full opacity-30"></div>
+                <div class="absolute -bottom-10 -left-10 w-24 h-24 bg-pink-300 rounded-full opacity-30"></div>
+                
+                <div id="romantic-phrase" class="text-2xl md:text-3xl elegant-font text-pink-800 mb-4 leading-relaxed"></div>
+                <div id="romantic-translation" class="text-lg md:text-xl text-pink-600 italic"></div>
+            </div>
+            
+            <div class="flex justify-center">
+                <button id="next-phrase" class="btn-romantic flex items-center gap-2">
+                    <span> Next Phrase</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="fireworks" class="absolute inset-0 pointer-events-none z-0"></div>
+    </section>
+
+    <!-- CUENTA REGRESIVA MEJORADA -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                Countdown
+            </h2>
+            <p class="text-center text-pink-600 mb-8 max-w-2xl mx-auto">
+                Counting every second until your birthday, my love. I love you more with each passing day.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+                <div class="countdown-box text-center">
+                    <div class="countdown-number mb-2" id="ph-days">00</div>
+                    <div class="countdown-label">Días</div>
+                    <div class="mt-4 text-sm text-pink-600 font-medium">Horario de Filipinas</div>
+                    <div id="countdown-ph" class="text-xs text-pink-500 mt-1"></div>
+                </div>
+                
+                <div class="countdown-box text-center">
+                    <div class="countdown-number mb-2" id="ar-days">00</div>
+                    <div class="countdown-label">Días</div>
+                    <div class="mt-4 text-sm text-pink-600 font-medium">Horario de Argentina</div>
+                    <div id="countdown-ar" class="text-xs text-pink-500 mt-1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BITÁCORA ROMÁNTICA MEJORADA -->
+    <section class="py-16 px-4 bg-gradient-to-br from-pink-50 to-pink-100">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                Nuestras Cartitas
+            </h2>
+            
+            <div id="notes-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <!-- Notas generadas dinámicamente -->
+            </div>
+            
+            <div class="romantic-card p-6 max-w-2xl mx-auto">
+                <h3 class="text-xl elegant-font text-pink-700 mb-4 text-center">Agregar nueva cartita</h3>
+                
+                <div class="flex flex-col gap-4">
+                    <textarea id="note-input" class="w-full rounded-xl border border-pink-200 p-4 focus:border-pink-400 focus:ring-2 focus:ring-pink-200 resize-none transition" rows="4" placeholder="Escribe tu mensaje de amor aquí..."></textarea>
+                    
+                    <div class="flex flex-col md:flex-row gap-4 items-center">
+                        <select id="note-theme" class="flex-1 rounded-xl border border-pink-200 p-3 focus:border-pink-400 focus:ring-2 focus:ring-pink-200 bg-white">
+                            <option value="amor">Tema Amor</option>
+                            <option value="romantico">Tema Romántico</option>
+                            <option value="sticky">Tema Nota</option>
+                        </select>
+                        
+                        <button id="add-note" class="btn-romantic px-8">Agregar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPRODUCTOR DE MÚSICA MEJORADO -->
+    <section class="py-16 px-4">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                Nuestra Música
+            </h2>
+            
+            <div class="music-player p-6">
+                <div class="flex items-center gap-4 mb-6">
+                    <img id="cover-img" src="assets/cover.jpg" alt="Portada" class="w-16 h-16 rounded-lg shadow-lg object-cover">
+                    <div class="flex-1 min-w-0">
+                        <h4 id="song-title" class="text-white text-lg font-bold truncate">Can't Help Falling In Love</h4>
+                        <p id="song-artist" class="text-gray-300 text-sm truncate">Elvis Presley</p>
+                    </div>
+                </div>
+                
+                <audio id="audio-player" src="assets/Elvis Presley - Can't Help Falling In Love (Official Audio).mp3"></audio>
+                
+                <div class="flex items-center gap-3 mb-4">
+                    <span id="current-time" class="text-gray-300 text-xs w-10">0:00</span>
+                    
+                    <div class="progress-bar flex-1">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    
+                    <span id="duration" class="text-gray-300 text-xs w-10">0:00</span>
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <button id="prev-song" class="text-gray-300 hover:text-white transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"></path>
+                            </svg>
+                        </button>
+                        
+                        <button id="play-btn" class="bg-pink-500 hover:bg-pink-600 text-white rounded-full p-3 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6 4l12 6-12 6V4z"/>
+                            </svg>
+                        </button>
+                        
+                        <button id="pause-btn" class="bg-gray-700 hover:bg-gray-800 text-white rounded-full p-3 transition hidden">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M6 4h2v12H6V4zm6 0h2v12h-2V4z"/>
+                            </svg>
+                        </button>
+                        
+                        <button id="next-song" class="text-gray-300 hover:text-white transition">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m-2.828-9.9a9 9 0 012.728-2.728"></path>
+                        </svg>
+                        
+                        <div class="volume-bar w-20">
+                            <div id="volume-level" class="volume-level"></div>
+                        </div>
+                        
+                        <input id="volume-bar" type="range" min="0" max="1" step="0.01" value="1" class="hidden">
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h5 class="text-pink-300 font-bold mb-3">Nuestra Playlist</h5>
+                    <ul id="song-list" class="divide-y divide-gray-700 max-h-60 overflow-y-auto">
+                        <li class="song-item py-3 px-2 cursor-pointer text-white flex items-center gap-3 active" data-src="assets/Elvis Presley - Can't Help Falling In Love (Official Audio).mp3" data-title="Can't Help Falling In Love" data-artist="Elvis Presley" data-cover="assets/cover.jpg">
+                            <div class="w-8 h-8 bg-pink-500 rounded flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6 4l12 6-12 6V4z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium truncate">Can't Help Falling In Love</div>
+                                <div class="text-xs text-gray-400 truncate">Elvis Presley</div>
+                            </div>
+                            <div class="text-xs text-gray-400">3:02</div>
+                        </li>
+                        <li class="song-item py-3 px-2 cursor-pointer text-white flex items-center gap-3" data-src="assets/Cold Hart & Lil Peep - Me and You.mp3" data-title="Me and You" data-artist="Cold Hart & Lil Peep" data-cover="assets/cover.jpg">
+                            <div class="w-8 h-8 bg-pink-500 rounded flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6 4l12 6-12 6V4z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium truncate">Me and You</div>
+                                <div class="text-xs text-gray-400 truncate">Cold Hart & Lil Peep</div>
+                            </div>
+                            <div class="text-xs text-gray-400">2:44</div>
+                        </li>
+                        <li class="song-item py-3 px-2 cursor-pointer text-white flex items-center gap-3" data-src="assets/Mac Miller - Surf (Subtitulado en español).mp3" data-title="Surf" data-artist="Mac Miller" data-cover="assets/cover.jpg">
+                            <div class="w-8 h-8 bg-pink-500 rounded flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6 4l12 6-12 6V4z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium truncate">Surf</div>
+                                <div class="text-xs text-gray-400 truncate">Mac Miller</div>
+                            </div>
+                            <div class="text-xs text-gray-400">5:30</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARTA ESPECIAL MEJORADA -->
+    <section class="py-16 px-4 bg-gradient-to-br from-pink-100 to-pink-200">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                My Letter to You
+            </h2>
+            
+            <div class="romantic-card p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-pink-200 rounded-full -translate-y-16 translate-x-16 opacity-30"></div>
+                <div class="absolute bottom-0 left-0 w-40 h-40 bg-pink-300 rounded-full translate-y-20 -translate-x-20 opacity-30"></div>
+                
+                <div id="letter-content" class="text-lg md:text-xl elegant-font text-pink-800 leading-relaxed relative z-10">
+                    <p class="mb-6">My dear Deareth,</p>
+                    
+                    <p class="mb-4">Since you came into my life, everything has taken on new meaning. You are the light that brightens my days and the calm that soothes my nights.</p>
+                    
+                    <p class="mb-4">Every moment by your side is a treasure that I keep deep in my heart. Your smile is my motivation, your voice my favourite melody, and your love the most precious gift I have ever received.</p>
+                    
+                    <p class="mb-4">Although distance separates us physically, nothing can separate us in spirit. My heart beats to the rhythm of yours, and with every beat you carry a piece of my soul with you.</p>
+                    
+                    <p class="mb-6">I love you more than words can express, more than time can measure, more than the universe can contain.</p>
+                    
+                    <p>With all my love, forever,</p>
+                    <p class="romantic-font text-2xl mt-4">Lauthi</p>
+                </div>
+                
+                <div class="absolute bottom-6 right-6">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                        <circle cx="30" cy="30" r="30" fill="#f472b6" opacity="0.2"/>
+                        <text x="50%" y="55%" text-anchor="middle" fill="#be185d" font-size="24" font-family="cursive" dy=".3em">💌</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEARETH'S FAVORITE THINGS & QUALITIES -->
+    <section class="py-16 px-4 bg-gradient-to-br from-pink-50 via-pink-100 to-pink-200 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-pink-300 rounded-full opacity-30 animate-pulse"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-pink-400 rounded-full opacity-20 animate-pulse"></div>
+            <div class="absolute top-1/2 left-1/2 w-24 h-24 bg-pink-200 rounded-full opacity-20 animate-bounce" style="transform: translate(-50%, -50%);"></div>
+        </div>
+        <div class="max-w-3xl mx-auto relative z-10">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-10 fade-in">
+                Things I Love About You
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="romantic-card p-8 flex flex-col items-center text-center bg-pink-100/80 shadow-xl rounded-2xl fade-in">
+                    <span class="text-5xl mb-4">🌸</span>
+                    <h3 class="text-pink-600 text-2xl font-bold mb-2">Your Favorite Color</h3>
+                    <p class="text-pink-700 elegant-font text-lg">Pink! Just like your sweet and beautiful soul.</p>
+                </div>
+                <div class="romantic-card p-8 flex flex-col items-center text-center bg-pink-200/80 shadow-xl rounded-2xl fade-in">
+                    <span class="text-5xl mb-4">🌷</span>
+                    <h3 class="text-pink-600 text-2xl font-bold mb-2">Tulips</h3>
+                    <p class="text-pink-700 elegant-font text-lg">You love tulips, and I dream of giving you a bouquet in person one day.</p>
+                </div>
+                <div class="romantic-card p-8 flex flex-col items-center text-center bg-pink-100/80 shadow-xl rounded-2xl fade-in">
+                    <span class="text-5xl mb-4">🍜</span>
+                    <h3 class="text-pink-600 text-2xl font-bold mb-2">Ramen</h3>
+                    <p class="text-pink-700 elegant-font text-lg">Ramen nights with you are my dream date. I hope we can share many bowls together!</p>
+                </div>
+                <div class="romantic-card p-8 flex flex-col items-center text-center bg-pink-200/80 shadow-xl rounded-2xl fade-in">
+                    <span class="text-5xl mb-4">📚</span>
+                    <h3 class="text-pink-600 text-2xl font-bold mb-2">English Teacher</h3>
+                    <p class="text-pink-700 elegant-font text-lg">You inspire so many with your passion and dedication. I'm so proud of you, mahal!</p>
+                </div>
+            </div>
+            <div class="mt-12 romantic-card p-8 bg-gradient-to-r from-pink-200 via-pink-100 to-pink-300 rounded-2xl shadow-2xl fade-in">
+                <h3 class="text-3xl romantic-font text-pink-700 mb-4">My Feelings For You</h3>
+                <ul class="list-disc pl-6 text-pink-700 elegant-font text-lg space-y-3">
+                    <li>I am deeply in love with you, no matter the distance between us.</li>
+                    <li>I am proud of everything you do and who you are.</li>
+                    <li>I will go straight to you, no matter what it takes. Nothing will stop me.</li>
+                    <li>I feel we are destined for each other. Fate brought us together, and I will never let go.</li>
+                    <li>Our love is stronger than any challenge. I will always choose you, every single day.</li>
+                </ul>
+                <div class="mt-6 text-center text-pink-600 text-xl font-bold">Mahal kita, sobra! You are my forever.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LÍNEA DE TIEMPO MEJORADA -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="section-title romantic-font text-4xl md:text-5xl text-center text-pink-700 mb-12">
+                Our Story
+            </h2>
+            
+            <div class="timeline pl-8">
+                <div class="timeline-item">
+                    <div class="romantic-card p-6 slide-in-left">
+                        <span class="text-pink-700 font-bold text-lg">1 September</span>
+                        <p class="text-pink-600 mt-2"> The day we first met 🥺💕. </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="romantic-card p-6 slide-in-right">
+                        <span class="text-pink-700 font-bold text-lg">October 19</span>
+                        <p class="text-pink-600 mt-2">My birthday and the first beautiful letter you wrote to me—I cannot express how much that gesture meant to me.</p>
+                    </div>
+                </div>
+                
+                <!-- <div class="timeline-item">
+                    <div class="romantic-card p-6 slide-in-left">
+                        <span class="text-pink-700 font-bold text-lg">28 de Noviembre, 2025</span>
+                        <p class="text-pink-600 mt-2">Tu cumpleaños especial, un día para celebrar tu existencia y recordarte cuánto significas para mí.</p>
+                    </div>
+                </div> -->
+                
+                <div class="timeline-item">
+                    <div class="romantic-card p-6 slide-in-right">
+                        <span class="text-pink-700 font-bold text-lg">Future</span>
+                        <p class="text-pink-600 mt-2">
+                            For all the days to come, building a life together filled with love, laughter, and unforgettable moments.
+                        </p>
+                        <p class="text-pink-600 mt-2">Hoping for the day we can be together, hand in hand, in every step of our journey. </p>
+                        <p class="text-pinkg-600 mt-2">Sana dumating ang araw na magkasama tayo, hawak-kamay sa bawat hakbang ng ating paglalakbay.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 bg-gradient-to-br from-pink-200 to-pink-300 text-center">
+        <p class="text-pink-700 romantic-font text-xl mb-2">To Deareth, with all my love</p>
+        <p class="text-pink-600">Made with ❤️ by Lauthi</p>
+    </footer>
+
+    <!-- EFECTO DE CORAZONES FLOTANDO -->
+    <div id="floating-hearts" class="fixed inset-0 pointer-events-none z-50"></div>
+
+    <script>
+        // ========== CONFIGURACIÓN INICIAL ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inicializar efectos de entrada
+            initScrollAnimations();
+            
+            // Crear corazones de fondo
+            createBackgroundHearts();
+            
+            // Inicializar todas las funcionalidades
+            initCarousel();
+            initPhrases();
+            initCountdown();
+            initNotes();
+            initMusicPlayer();
+            
+            // Lanzar corazones flotantes periódicamente
+            setInterval(launchHearts, 2000);
+        });
+
+        // ========== ANIMACIONES AL SCROLL ==========
+        function initScrollAnimations() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observar todos los elementos con clase para animación
+            document.querySelectorAll('.romantic-card, .section-title').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ========== CORAZONES DE FONDO ==========
+        function createBackgroundHearts() {
+            const container = document.getElementById('background-hearts');
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.className = 'absolute text-pink-200 opacity-20';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+                heart.style.animation = `floating ${10 + Math.random() * 10}s infinite ease-in-out`;
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // ========== CARRUSEL MEJORADO ==========
+        function initCarousel() {
+            const assetImages = [
+                "8992778191_110570058234582_1759045749789.png",
+                "8992778191_110570058234582_1759048680721.png",
+                "8992778191_110570058234582_1760160435329.png",
+                "8992778191_110570058234582_1760160719513.png",
+                "8992778191_110570058234582_1760160776555.png",
+                "8992778191_110570058234582_1760766778886.png",
+                "8992778191_110570058234582_1760770383273.png",
+                "8992778191_110570058234582_1760770389511.png",
+                "8992778191_110570058234582_1761983586542.png",
+                "8992778191_110570058234582_1761983683903.png",
+                "8992778191_110570058234582_1761983907189.png",
+                "8992778191_110570058234582_1761984041738.png",
+                "8992778191_110570058234582_1761984073759.png",
+                "8992778191_110570058234582_1761984180142.png",
+                "8992778191_110570058234582_1761984299512.png",
+                "8992778191_110570058234582_1761984320610.png",
+                "8992778191_110570058234582_1761984353123.png"
+            ];
+            
+            const carouselViewport = document.getElementById('carousel-viewport');
+            const carouselDots = document.getElementById('carousel-dots');
+            let current = 0;
+            let autoPlayInterval;
+
+            // Generar slides
+            carouselViewport.innerHTML = assetImages.map((img, i) => `
+                <figure class="slide absolute inset-0 transition-opacity duration-700 ease-out ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}" data-index="${i}" aria-hidden="${i !== 0}">
+                    <img src="assets/pictures/${img}" alt="Nuestro momento ${i+1}" class="w-full h-full object-cover rounded-xl">
+                    <figcaption class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6 pointer-events-none rounded-xl">
+                        <div class="text-white mb-6 ml-6">
+                            <p class="text-lg romantic-font">Nuestro momento #${i+1}</p>
+                        </div>
+                    </figcaption>
+                </figure>
+            `).join('');
+
+            // Generar dots
+            carouselDots.innerHTML = assetImages.map((_, i) => `
+                <button class="dot w-3 h-3 rounded-full transition-all ${i === 0 ? 'bg-pink-500 active' : 'bg-pink-300/80'}" aria-label="Ir a la imagen ${i+1}" aria-current="${i === 0}"></button>
+            `).join('');
+
+            // Lógica de navegación
+            const slides = carouselViewport.querySelectorAll('.slide');
+            const dots = carouselDots.querySelectorAll('.dot');
+            
+            document.getElementById('prev').onclick = () => {
+                resetAutoPlay();
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
+            };
+            
+            document.getElementById('next').onclick = () => {
+                resetAutoPlay();
+                current = (current + 1) % slides.length;
+                showSlide(current);
+            };
+            
+            dots.forEach((dot, i) => {
+                dot.onclick = () => {
+                    resetAutoPlay();
+                    current = i;
+                    showSlide(current);
+                };
+            });
+            
+            function showSlide(idx) {
+                slides.forEach((s, i) => {
+                    s.classList.toggle('opacity-100', i === idx);
+                    s.classList.toggle('opacity-0', i !== idx);
+                    s.classList.toggle('pointer-events-none', i !== idx);
+                    s.setAttribute('aria-hidden', (i !== idx).toString());
+                });
+                
+                dots.forEach((d, i) => {
+                    d.classList.toggle('bg-pink-500', i === idx);
+                    d.classList.toggle('bg-pink-300/80', i !== idx);
+                    d.classList.toggle('active', i === idx);
+                    d.setAttribute('aria-current', (i === idx).toString());
+                });
+                
+                current = idx;
+            }
+            
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(() => {
+                    current = (current + 1) % slides.length;
+                    showSlide(current);
+                }, 5000);
+            }
+            
+            function resetAutoPlay() {
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            }
+            
+            // Iniciar autoplay
+            startAutoPlay();
+            
+            // Pausar autoplay al hacer hover
+            carouselViewport.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+            
+            carouselViewport.addEventListener('mouseleave', () => {
+                startAutoPlay();
+            });
+        }
+
+        // ========== FRASES ROMÁNTICAS MEJORADAS ==========
+        function initPhrases() {
+            const phrases = [
+                {
+                    es: "Te amo más que a mi propia vida.",
+                    en: "I love you more than my own life.",
+                    lunfardo: "Te re amo más que a mi propia vida, che."
+                },
+                {
+                    es: "Eres mi razón de sonreír cada día.",
+                    en: "You are my reason to smile every day.",
+                    lunfardo: "Sos mi motivo de alegría cada día, bombón."
+                },
+                {
+                    es: "Contigo, cada momento es eterno.",
+                    en: "With you, every moment is eternal.",
+                    lunfardo: "Con vos, cada momento es para siempre, mi reina."
+                },
+                {
+                    es: "No hay distancia que apague este amor.",
+                    en: "No distance can extinguish this love.",
+                    lunfardo: "No hay distancia que apague este amor, mi corazón."
+                },
+                {
+                    es: "Eres mi sueño hecho realidad.",
+                    en: "You are my dream come true.",
+                    lunfardo: "Sos mi sueño hecho realidad, mi vida."
+                },
+                {
+                    en: "You are the light in my darkest days.",
+                    es: "Eres la luz en mis días más oscuros.",
+                    lunfardo: "Sos la luz en mis días más grises, mi sol."
+                },
+                {
+                    en: "My heart beats only for you.",
+                    es: "Mi corazón late solo por ti.",
+                    lunfardo: "Mi corazón late solo por vos, mi amor."
+                },
+                {
+                    en: "You are my forever and always.",
+                    es: "Eres mi siempre y para siempre.",
+                    lunfardo: "Sos mi siempre y para siempre, mi cielo."
+                }
+            ];
+            
+            let phraseIdx = 0;
+            
+            function showPhrase(idx) {
+                const p = phrases[idx];
+                const isSpanish = !!p.es && (!p.en || p.es.length >= p.en.length);
+                document.getElementById('romantic-phrase').textContent = isSpanish ? p.es : p.en;
+                document.getElementById('romantic-translation').textContent = isSpanish ? p.en : p.lunfardo;
+                
+                // Efecto de animación
+                anime({
+                    targets: '#romantic-phrase, #romantic-translation',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 800,
+                    easing: 'easeOutCubic'
+                });
+                
+                // Lanzar fuegos artificiales
+                launchFireworks();
+                
+                // Efecto de confeti ocasional
+                if (Math.random() > 0.7) {
+                    confetti({
+                        particleCount: 80,
+                        spread: 70,
+                        origin: { y: 0.6 },
+                        colors: ['#ec4899', '#f472b6', '#fbbf24']
+                    });
+                }
+            }
+            
+            document.getElementById('next-phrase').onclick = function() {
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                showPhrase(phraseIdx);
+            };
+            
+            // Cambiar frase automáticamente cada 10 segundos
+            setInterval(() => {
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                showPhrase(phraseIdx);
+            }, 10000);
+            
+            showPhrase(phraseIdx);
+        }
+
+        // ========== FUEGOS ARTIFICIALES MEJORADOS ==========
+        function launchFireworks() {
+            const fw = document.getElementById('fireworks');
+            
+            for(let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * 100;
+                    const y = Math.random() * 100;
+                    const size = 30 + Math.random() * 50;
+                    const color = ['#ec4899', '#f472b6', '#f87171', '#fbbf24', '#a7f3d0'][Math.floor(Math.random() * 5)];
+                    
+                    const el = document.createElement('div');
+                    el.className = 'firework';
+                    el.style.left = x + '%';
+                    el.style.top = y + '%';
+                    el.style.width = size + 'px';
+                    el.style.height = size + 'px';
+                    el.style.background = `radial-gradient(circle, ${color} 40%, transparent 70%)`;
+                    el.style.boxShadow = `0 0 20px ${color}`;
+                    el.style.opacity = '0';
+                    
+                    fw.appendChild(el);
+                    
+                    // Animación de entrada y salida
+                    anime({
+                        targets: el,
+                        opacity: [0, 0.8, 0],
+                        scale: [0, 1, 0],
+                        duration: 1500,
+                        easing: 'easeOutQuad',
+                        complete: () => el.remove()
+                    });
+                }, i * 200);
+            }
+        }
+
+        // ========== CUENTA REGRESIVA MEJORADA ==========
+        function initCountdown() {
+            function updateCountdowns() {
+                // Filipinas UTC+8, Argentina UTC-3
+                const birthday = new Date(Date.UTC(2025, 10, 28, 0, 0, 0)); // 28/11/2025 00:00 UTC
+                
+                // Filipinas: 28/11/2025 08:00
+                const phTime = new Date(birthday.getTime() + 8 * 60 * 60 * 1000);
+                
+                // Argentina: 28/11/2025 00:00 -3
+                const arTime = new Date(birthday.getTime() - 3 * 60 * 60 * 1000);
+                
+                function getCountdown(target) {
+                    const now = new Date();
+                    const diff = target - now;
+                    
+                    if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, text: '¡Feliz cumpleaños!' };
+                    
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                    const seconds = Math.floor((diff / 1000) % 60);
+                    
+                    return {
+                        days,
+                        hours,
+                        minutes,
+                        seconds,
+                        text: `${days} días, ${hours} horas, ${minutes} minutos, ${seconds} segundos`
+                    };
+                }
+                
+                const phCountdown = getCountdown(phTime);
+                const arCountdown = getCountdown(arTime);
+                
+                document.getElementById('ph-days').textContent = phCountdown.days.toString().padStart(2, '0');
+                document.getElementById('ar-days').textContent = arCountdown.days.toString().padStart(2, '0');
+                
+                document.getElementById('countdown-ph').textContent = phCountdown.text;
+                document.getElementById('countdown-ar').textContent = arCountdown.text;
+                
+                // Efecto de animación en el cambio de números
+                if (phCountdown.days < parseInt(document.getElementById('ph-days').getAttribute('data-prev') || 999)) {
+                    animateNumberChange(document.getElementById('ph-days'));
+                }
+                
+                if (arCountdown.days < parseInt(document.getElementById('ar-days').getAttribute('data-prev') || 999)) {
+                    animateNumberChange(document.getElementById('ar-days'));
+                }
+                
+                document.getElementById('ph-days').setAttribute('data-prev', phCountdown.days);
+                document.getElementById('ar-days').setAttribute('data-prev', arCountdown.days);
+            }
+            
+            function animateNumberChange(element) {
+                anime({
+                    targets: element,
+                    scale: [1, 1.2, 1],
+                    color: ['#be185d', '#ec4899', '#be185d'],
+                    duration: 600,
+                    easing: 'easeOutElastic(1, .8)'
+                });
+            }
+            
+            setInterval(updateCountdowns, 1000);
+            updateCountdowns();
+        }
+
+        // ========== BITÁCORA ROMÁNTICA MEJORADA ==========
+        function initNotes() {
+            function getNotes() {
+                return JSON.parse(localStorage.getItem('romanticNotes') || '[]');
+            }
+            
+            function saveNotes(notes) {
+                localStorage.setItem('romanticNotes', JSON.stringify(notes));
+            }
+            
+            function renderNotes() {
+                const notes = getNotes();
+                const container = document.getElementById('notes-container');
+                container.innerHTML = '';
+                
+                if (notes.length === 0) {
+                    container.innerHTML = `
+                        <div class="col-span-full text-center py-12">
+                            <svg class="w-16 h-16 text-pink-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                            <p class="text-pink-500 elegant-font text-xl">Aún no hay cartitas</p>
+                            <p class="text-pink-400 mt-2">¡Comienza escribiendo tu primer mensaje de amor!</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                notes.forEach((note, i) => {
+                    const theme = note.theme;
+                    let themeClass = '';
+                    
+                    if (theme === 'amor') themeClass = 'note-amor';
+                    else if (theme === 'romantico') themeClass = 'note-romantico';
+                    else themeClass = 'note-sticky';
+                    
+                    const el = document.createElement('div');
+                    el.className = `romantic-card p-4 h-full flex flex-col ${themeClass} fade-in`;
+                    el.innerHTML = `
+                        <div class="flex-1 mb-4 elegant-font">${note.text}</div>
+                        <div class="flex justify-between items-center text-sm text-pink-500">
+                            <span class="bg-pink-100 px-2 py-1 rounded-full">${getThemeName(theme)}</span>
+                            <div class="flex gap-2">
+                                <button class="edit-note text-pink-600 hover:text-pink-800 transition" title="Editar">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                    </svg>
+                                </button>
+                                <button class="delete-note text-pink-600 hover:text-pink-800 transition" title="Eliminar">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    el.querySelector('.edit-note').onclick = () => {
+                        document.getElementById('note-input').value = note.text;
+                        document.getElementById('note-theme').value = note.theme;
+                        document.getElementById('add-note').textContent = 'Guardar Cambios';
+                        window.editingNote = i;
+                        
+                        // Scroll suave al formulario
+                        document.getElementById('note-input').scrollIntoView({ behavior: 'smooth' });
+                        document.getElementById('note-input').focus();
+                    };
+                    
+                    el.querySelector('.delete-note').onclick = () => {
+                        if (confirm('¿Estás seguro de que quieres eliminar esta cartita?')) {
+                            notes.splice(i, 1);
+                            saveNotes(notes);
+                            renderNotes();
+                            
+                            // Mostrar notificación
+                            showNotification('Cartita eliminada', 'error');
+                        }
+                    };
+                    
+                    container.appendChild(el);
+                });
+                
+                window.editingNote = null;
+                document.getElementById('add-note').textContent = 'Agregar';
+            }
+            
+            function getThemeName(theme) {
+                const themes = {
+                    'amor': 'Amor',
+                    'romantico': 'Romántico',
+                    'sticky': 'Nota'
+                };
+                return themes[theme] || 'Nota';
+            }
+            
+            function showNotification(message, type = 'success') {
+                // Crear elemento de notificación
+                const notification = document.createElement('div');
+                notification.className = `fixed top-4 right-4 romantic-card p-4 z-50 transform translate-x-full transition-transform duration-300 ${
+                    type === 'success' ? 'border-l-4 border-green-500' : 'border-l-4 border-red-500'
+                }`;
+                notification.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <svg class="w-5 h-5 ${type === 'success' ? 'text-green-500' : 'text-red-500'}" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="text-pink-700">${message}</span>
+                    </div>
+                `;
+                
+                document.body.appendChild(notification);
+                
+                // Animación de entrada
+                setTimeout(() => {
+                    notification.classList.remove('translate-x-full');
+                }, 10);
+                
+                // Animación de salida después de 3 segundos
+                setTimeout(() => {
+                    notification.classList.add('translate-x-full');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+            
+            document.getElementById('add-note').onclick = function() {
+                const text = document.getElementById('note-input').value.trim();
+                const theme = document.getElementById('note-theme').value;
+                
+                if (!text) {
+                    showNotification('Por favor, escribe un mensaje', 'error');
+                    return;
+                }
+                
+                let notes = getNotes();
+                
+                if (window.editingNote != null) {
+                    notes[window.editingNote] = { text, theme };
+                    showNotification('Cartita actualizada');
+                } else {
+                    notes.push({ text, theme });
+                    showNotification('Cartita agregada');
+                }
+                
+                saveNotes(notes);
+                renderNotes();
+                document.getElementById('note-input').value = '';
+                document.getElementById('note-theme').value = 'amor';
+            };
+            
+            renderNotes();
+        }
+
+        // ========== REPRODUCTOR DE MÚSICA MEJORADO ==========
+        function getMusicFiles() {
+            return [
+                {
+                    src: 'assets/music/Elvis Presley - Can\'t Help Falling In Love (Official Audio).mp3',
+                    title: "Can't Help Falling In Love",
+                    artist: "Elvis Presley",
+                    cover: 'assets/cover.jpg',
+                    duration: '3:02'
+                },
+                {
+                    src: 'assets/music/Cold Hart & Lil Peep - Me and You.mp3',
+                    title: "Me and You",
+                    artist: "Cold Hart & Lil Peep",
+                    cover: 'assets/cover.jpg',
+                    duration: '2:44'
+                },
+                {
+                    src: 'assets/music/Mac Miller - Surf (Subtitulado en español).mp3',
+                    title: "Surf",
+                    artist: "Mac Miller",
+                    cover: 'assets/cover.jpg',
+                    duration: '5:30'
+                },
+                {
+                    src: 'assets/music/KHEA - Sigue Lloviendo  LETRA.mp3',
+                    title: "Sigue Lloviendo",
+                    artist: "KHEA",
+                    cover: 'assets/cover.jpg',
+                    duration: '3:00'
+                },
+                {
+                    src: 'assets/music/Benson Boone - Beautiful Things (Official Music Video).mp3',
+                    title: "Beautiful Things",
+                    artist: "Benson Boone",
+                    cover: 'assets/cover.jpg',
+                    duration: '3:15'
+                }
+            ];
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function initMusicPlayer() {
+            const audio = document.getElementById('audio-player');
+            const playBtn = document.getElementById('play-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const prevBtn = document.getElementById('prev-song');
+            const nextBtn = document.getElementById('next-song');
+            const currentTime = document.getElementById('current-time');
+            const duration = document.getElementById('duration');
+            const progress = document.getElementById('progress');
+            const volumeBar = document.getElementById('volume-bar');
+            const volumeLevel = document.getElementById('volume-level');
+            const songListEl = document.getElementById('song-list');
+            const songTitle = document.getElementById('song-title');
+            const songArtist = document.getElementById('song-artist');
+            const coverImg = document.getElementById('cover-img');
+
+            let songs = shuffleArray(getMusicFiles());
+            let currentSongIndex = 0;
+
+            // Renderizar lista de canciones
+            songListEl.innerHTML = songs.map((song, i) => `
+                <li class="song-item py-3 px-2 cursor-pointer text-white flex items-center gap-3${i === 0 ? ' active' : ''}" data-index="${i}">
+                    <div class="w-8 h-8 bg-pink-500 rounded flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6 4l12 6-12 6V4z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="font-medium truncate">${song.title}</div>
+                        <div class="text-xs text-gray-400 truncate">${song.artist}</div>
+                    </div>
+                    <div class="text-xs text-gray-400">${song.duration}</div>
+                </li>
+            `).join('');
+
+            function loadSong(index) {
+                const song = songs[index];
+                audio.src = song.src;
+                songTitle.textContent = song.title;
+                songArtist.textContent = song.artist;
+                coverImg.src = song.cover;
+                Array.from(songListEl.children).forEach((el, i) => {
+                    el.classList.toggle('active', i === index);
+                });
+                currentSongIndex = index;
+            }
+
+            // Autoplay primera canción
+            loadSong(0);
+            const playPromise = audio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    playBtn.classList.add('hidden');
+                    pauseBtn.classList.remove('hidden');
+                }).catch(() => {
+                    playBtn.classList.remove('hidden');
+                    pauseBtn.classList.add('hidden');
+                });
+            }
+
+            // Eventos de botones
+            playBtn.onclick = () => {
+                audio.play();
+                playBtn.classList.add('hidden');
+                pauseBtn.classList.remove('hidden');
+            };
+            pauseBtn.onclick = () => {
+                audio.pause();
+                pauseBtn.classList.add('hidden');
+                playBtn.classList.remove('hidden');
+            };
+            prevBtn.onclick = () => {
+                currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+                loadSong(currentSongIndex);
+                audio.play();
+                playBtn.classList.add('hidden');
+                pauseBtn.classList.remove('hidden');
+            };
+            nextBtn.onclick = () => {
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+                loadSong(currentSongIndex);
+                audio.play();
+                playBtn.classList.add('hidden');
+                pauseBtn.classList.remove('hidden');
+            };
+            Array.from(songListEl.children).forEach((el, i) => {
+                el.onclick = () => {
+                    loadSong(i);
+                    audio.play();
+                    playBtn.classList.add('hidden');
+                    pauseBtn.classList.remove('hidden');
+                };
+            });
+            audio.addEventListener('ended', () => {
+                currentSongIndex = (currentSongIndex + 1) % songs.length;
+                loadSong(currentSongIndex);
+                audio.play();
+            });
+            audio.addEventListener('loadedmetadata', () => {
+                duration.textContent = formatTime(audio.duration);
+            });
+            audio.addEventListener('timeupdate', () => {
+                currentTime.textContent = formatTime(audio.currentTime);
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progress.style.width = `${progressPercent}%`;
+            });
+            document.querySelector('.progress-bar').onclick = (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const percent = (e.clientX - rect.left) / rect.width;
+                audio.currentTime = percent * audio.duration;
+            };
+            volumeBar.oninput = () => {
+                audio.volume = volumeBar.value;
+                volumeLevel.style.width = `${volumeBar.value * 100}%`;
+            };
+            function formatTime(sec) {
+                if (isNaN(sec)) return '0:00';
+                const m = Math.floor(sec / 60);
+                const s = Math.floor(sec % 60).toString().padStart(2, '0');
+                return `${m}:${s}`;
+            }
+        }
+
+        // ========== CORAZONES FLOTANTES ==========
+        function launchHearts() {
+            const fh = document.getElementById('floating-hearts');
+            const heartCount = 2 + Math.floor(Math.random() * 3);
+            
+            for (let i = 0; i < heartCount; i++) {
+                const el = document.createElement('div');
+                el.className = 'floating-heart';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.fontSize = (20 + Math.random() * 30) + 'px';
+                el.style.color = ['#ec4899', '#f472b6', '#f87171', '#fbbf24'][Math.floor(Math.random() * 4)];
+                el.style.opacity = '0.7';
+                el.textContent = Math.random() > 0.5 ? '❤' : '💖';
+                el.style.animationDuration = (3 + Math.random() * 4) + 's';
+                fh.appendChild(el);
+                
+                setTimeout(() => el.remove(), 5000);
+            }
+        }
+
+        // Pequeño cambio para forzar guardado
+        console.log('Guardado forzado: ' + new Date().toISOString());
+    </script>
+</body>
+</html>
